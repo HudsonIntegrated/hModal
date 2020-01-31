@@ -124,6 +124,7 @@ var lOptions = {
  
 mybox.showSlideOut(bodyHtml, lOptions);
 ```
+
 ### The Options Object
 The options object may contain the following properties. All properties are optional.
 
@@ -138,7 +139,7 @@ The options object may contain the following properties. All properties are opti
 | customClass | String | String containing the name of a custom css class to be applied to the modal. | Any valid css class | none |
 | contentArea | String | A string containing the selector of an html element to grab the body content from. | Any valid selector | none |
 | closeButton | Object | An options object describing the location of the close button | [See below](#closeButton) | none |
-| Buttons | Array | An array containing objects describing buttons to be placed into the footer of the modal. | [See below](#button-options) | none |
+| buttons | Array | An array containing objects describing buttons to be placed into the footer of the modal. | [See below](#button-options) | none |
 
 
 
@@ -179,8 +180,6 @@ Defaults:
 
 
 
----
-
 ### Button Options
 ---
 The buttons property takes an array of button objects. Each button object is rendered as its own button within the footer of the modal.
@@ -209,7 +208,6 @@ A callback function is a function which will run when the button is clicked. By 
 * Callback functions should be wrapped in an unnamed function to prevent the function from running on page load.
 * If you need to access the calling modal in the callback, pass the obj parameter into both the unnamed function and your callback function.
 
----
 
 ## Open and Close Events
 
