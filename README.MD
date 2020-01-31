@@ -96,6 +96,13 @@ Each render function takes two arguments:
     * Options(optional)
     ..* A javascript object containing options for the render.
 
+HTML
+
+```html
+<div id=”contentArea"></div>
+```
+
+JavaScript
 
 ```javascript
 var lOptions = {
@@ -111,7 +118,8 @@ var lOptions = {
         popupFixedHeight: true,
         overlayOnClickClose: true,
         overlayColor: "light",
-        customClass: "",
+        customClass: "booking-popup-hmodal",
+        contentArea: “#contentArea”
     }
  
 mybox.showSlideOut(bodyHtml, lOptions);
@@ -119,74 +127,18 @@ mybox.showSlideOut(bodyHtml, lOptions);
 
 | Property | Type | Description | Possible Values | Default Value
 | --- | --- | --- | --- | --- |
-| header | HTML | HTML to be placed in header section of hmodal | N/A | N/A |
-| footer | HTML | HTML to be placed in footer section of hmodal | N/A| N/A |
-| slideoutDirection | String | String describing the side that the slideout will appear. | `right` or `left` | `right` |
+| header | HTML | HTML to be placed in the header section of hmodal | N/A | N/A |
+| footer | HTML | HTML to be placed in the footer section of hmodal | N/A| N/A |
+| slideoutDirection | String | String describing the side that the slideout will appear. | `"right"` or `"left"` | `"right"` |
 | popupFixedHeight | Boolean | Boolean describing whether the popup will have a fixed height (meaning that it will be scrollable). | true or false | `false` |
 | overlayOnClickClose | Boolean | Boolean describing whether clicking the overlay will close the popup. | true or false | `true` |
 | overlayColor | String | String describing the color of the overlay. | `"light"` or `"dark"` | `dark` |
-| customClass | String | String containing the name of a custom css class to be applied to the modal. | Any valid css class | null |
-| contentArea | String | A string containing the selector of an html element to grab the body content from. | Any valid selector | null |
-| closeButton | Object | An options object describing the location of the close button | See below | null |
-| Buttons | Array | An array containing objects describing buttons to be placed into the footer of the modal. | See below | null |
-
-### Header and Footer
-The header and footer properties are strings containing html to be rendered within the header or footer div of the modal. If they are not initialized, no header or footer will be rendered.
+| customClass | String | String containing the name of a custom css class to be applied to the modal. | Any valid css class | none |
+| contentArea | String | A string containing the selector of an html element to grab the body content from. | Any valid selector | none |
+| closeButton | Object | An options object describing the location of the close button | [See below](#closeButton) | none |
+| Buttons | Array | An array containing objects describing buttons to be placed into the footer of the modal. | [See below](#button-options) | none |
 
 
-
-
-
-### slideoutDirection
-String describing the side that the slideout will appear.
-
-Either ```"right"``` or ```"left"```.
-
-Default:
-
-```"right"```
-
-### popupFixedHeight
-Boolean describing whether the popup will have a fixed height (meaning that it will be scrollable).
-
-Default:
-
-false
-
-### overlayOnClickClose
-Boolean describing whether clicking the overlay will close the popup.
-    
-    Default: true
-
-### overlayColor
-String describing the color of the overlay.
-            Either “light” or “dark”
-            Default: “dark”
-
-### customClass
-A string containing the name of a custom css class to be applied to the modal.
-            Default: none
-
-Example: 
-
-```javascript
-customClass: “booking-popup-hmodal”,
-```
-
-### contentArea
-A string containing the selector of an html element to grab the body content from
-    
-HTML
-
-```html
-<div id=”contentArea"></div>
-```
-
-JS
-
-```javascript
-contentArea: “#contentArea”
-```
 
 ### closeButton
 ---
@@ -279,12 +231,9 @@ $(“#”+coleModal.id).on(“close”,function(e, id){
 Note: events bubble, so it is possible to listen for an hmodal close event on the document
 
 Example:
+
 ```javascript
 $(document).on(“open”, function(e, id){
     alert(“hmodal with id ” + id +” has been opened”);
 });
 ```
-
-Demo:
-
-http://styleguide.hudsondemo.com/test-page/hmodal 
