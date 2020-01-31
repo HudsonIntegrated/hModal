@@ -16,13 +16,13 @@ Will initialize an hModal.
 From here we need to pick a method of rendering, the options are:
 
 Slideout
-![Slideout][https://raw.githubusercontent.com/HudsonIntegrated/hModal/master/docs/screenshots/modal.png?token=AONQHOZAX7TKQC2HIR5FCAS6GRCBY]
+![Slideout](https://raw.githubusercontent.com/HudsonIntegrated/hModal/master/docs/screenshots/modal.png?token=AONQHOZAX7TKQC2HIR5FCAS6GRCBY)
 
 PopUp
-![PopUp][https://raw.githubusercontent.com/HudsonIntegrated/hModal/master/docs/screenshots/popup.png?token=AONQHOZ5UEMNFWE2WMWHT326GRCCQ]
+![PopUp](https://raw.githubusercontent.com/HudsonIntegrated/hModal/master/docs/screenshots/popup.png?token=AONQHOZ5UEMNFWE2WMWHT326GRCCQ)
 
 Modal
-![Modal][https://raw.githubusercontent.com/HudsonIntegrated/hModal/master/docs/screenshots/slideout.png?token=AONQHO53MEXEV2DD5L72UIK6GRCDE]
+![Modal](https://raw.githubusercontent.com/HudsonIntegrated/hModal/master/docs/screenshots/slideout.png?token=AONQHO53MEXEV2DD5L72UIK6GRCDE)
 
 To render, simply call the type of render function you desire on the hmodal object you previously created.
 
