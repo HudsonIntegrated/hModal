@@ -117,6 +117,19 @@ var lOptions = {
 mybox.showSlideOut(bodyHtml, lOptions);
 ```
 
+| Property | Type | Description | Possible Values | Default Value
+| --- | --- | --- | --- | --- |
+| header | HTML | HTML to be placed in header section of hmodal | N/A | N/A |
+| footer | HTML | HTML to be placed in footer section of hmodal | N/A| N/A |
+| slideoutDirection | String | String describing the side that the slideout will appear. | `right` or `left` | `right` |
+| popupFixedHeight | Boolean | Boolean describing whether the popup will have a fixed height (meaning that it will be scrollable). | true or false | `false` |
+| overlayOnClickClose | Boolean | Boolean describing whether clicking the overlay will close the popup. | true or false | `true` |
+| overlayColor | String | String describing the color of the overlay. | `"light"` or `"dark"` | `dark` |
+| customClass | String | String containing the name of a custom css class to be applied to the modal. | Any valid css class | null |
+| contentArea | String | A string containing the selector of an html element to grab the body content from. | Any valid selector | null |
+| closeButton | Object | An options object describing the location of the close button | See below | null |
+| Buttons | Array | An array containing objects describing buttons to be placed into the footer of the modal. | See below | null |
+
 ### Header and Footer
 The header and footer properties are strings containing html to be rendered within the header or footer div of the modal. If they are not initialized, no header or footer will be rendered.
 
