@@ -124,6 +124,8 @@ var lOptions = {
  
 mybox.showSlideOut(bodyHtml, lOptions);
 ```
+### The Options Object
+The options object may contain the following properties. All properties are optional.
 
 | Property | Type | Description | Possible Values | Default Value
 | --- | --- | --- | --- | --- |
