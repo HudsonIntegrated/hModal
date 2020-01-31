@@ -1,3 +1,8 @@
+/* --------------------------------------------- */
+/*               hModal Version 1.0             */
+/* --------------------------------------------- */
+
+
 var hModal = function(content,settings){
     var obj = this; // global reference 
 	
