@@ -1,8 +1,14 @@
 # hModal
+A universal modal plugin. Requires variables.scss somewhere in the project. 
+
+[Skip to Options](#options)
 
 Demo: 
 
 http://styleguide.hudsondemo.com/test-page/hmodal
+
+
+
 
 ## Getting Started
 To create an hmodal, the bare minimum is content. The first argument an hmodal accepts is html in the form of a string.
