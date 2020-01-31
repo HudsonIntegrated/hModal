@@ -1,6 +1,7 @@
 # hModal
 
 Demo: 
+
 http://styleguide.hudsondemo.com/test-page/hmodal
 
 ## Getting Started
@@ -119,71 +120,9 @@ mybox.showSlideOut(bodyHtml, lOptions);
 ### Header and Footer
 The header and footer properties are strings containing html to be rendered within the header or footer div of the modal. If they are not initialized, no header or footer will be rendered.
 
-### Button Options
----
-The buttons property takes an array of button objects. Each button object is rendered as its own button within the footer of the modal.
-
-```javascript
-buttons: [
-            {
-                name: "Ok",
-                callback: function(obj){
-                    closeAll(obj);
-                },
-            },
-            {
-                name: "Close",
-                callback: null,
-            },
-        ],
-```
-
-#### Name
-A string containing the text that will appear within the button.
-
-#### Callback
-A callback function is a function which will run when the button is clicked. By default, the callback function will close the modal.
-* Callback functions are stored in the callback property of the button object.
-* Callback functions should be wrapped in an unnamed function to prevent the function from running on page load.
-* If you need to access the calling modal in the callback, pass the obj parameter into both the unnamed function and your callback function.
-
----
-
-### closeButton
-The closeButton property takes an object containing true or false settings which describe where the close button for the modal should be placed.
 
 
 
-#### Inside
-Whether or not it should be inside the hmodal.
-
-Defaults:
-
-| Slideout | Pop Up |
-| --- | --- |
-| true | true |
-
-
-
-#### Right
-Whether or not it should be to the right of the modal.
-
-Defaults:
-
-| Slideout | Pop Up |
-| --- | --- |
-| true | true |
-
-#### Show
-Whether or not the close button will be shown.
-
-Defaults:
-
-Defaults:
-
-| Slideout | Pop Up |
-| --- | --- |
-| true | true |
 
 ### slideoutDirection
 String describing the side that the slideout will appear.
@@ -236,6 +175,75 @@ JS
 contentArea: “#contentArea”
 ```
 
+### closeButton
+---
+The closeButton property takes an object containing true or false settings which describe where the close button for the modal should be placed.
+
+#### Inside
+Whether or not it should be inside the hmodal.
+
+Defaults:
+
+| Slideout | Pop Up |
+| --- | --- |
+| true | true |
+
+
+
+#### Right
+Whether or not it should be to the right of the modal.
+
+Defaults:
+
+| Slideout | Pop Up |
+| --- | --- |
+| true | true |
+
+#### Show
+Whether or not the close button will be shown.
+
+Defaults:
+
+Defaults:
+
+| Slideout | Pop Up |
+| --- | --- |
+| true | true |
+
+
+
+---
+
+### Button Options
+---
+The buttons property takes an array of button objects. Each button object is rendered as its own button within the footer of the modal.
+
+```javascript
+buttons: [
+            {
+                name: "Ok",
+                callback: function(obj){
+                    closeAll(obj);
+                },
+            },
+            {
+                name: "Close",
+                callback: null,
+            },
+        ],
+```
+
+#### Name
+A string containing the text that will appear within the button.
+
+#### Callback
+A callback function is a function which will run when the button is clicked. By default, the callback function will close the modal.
+* Callback functions are stored in the callback property of the button object.
+* Callback functions should be wrapped in an unnamed function to prevent the function from running on page load.
+* If you need to access the calling modal in the callback, pass the obj parameter into both the unnamed function and your callback function.
+
+---
+
 ## Open and Close Events
 
 * hModal now has 2 custom jQuery events
@@ -249,8 +257,9 @@ Example of using such event:
 ```javascript
 var coleModal = new hModal();
 coleModal.showPopUp();
+
 $(“#”+coleModal.id).on(“close”,function(e, id){
-alert(“hmodal with id ” + id + “ has closed”);
+    alert(“hmodal with id ” + id + “ has closed”);
 });
 ```
 
@@ -264,4 +273,5 @@ $(document).on(“open”, function(e, id){
 ```
 
 Demo:
+
 http://styleguide.hudsondemo.com/test-page/hmodal 
