@@ -17,6 +17,30 @@ var hModal = function(content, settings) {
   obj.element = $("#" + obj.id);
 
   // methods
+
+  this.slideoutOptionsHandler = function(html, options){
+	if (options && options.slideoutDirection === "left") {
+        $(obj.element)
+          .removeClass("hmodal-slideout-right") // must remove in case it was changed in prior render
+          .addClass("hmodal-slideout-left");
+      } else {
+        $(obj.element)
+          .removeClass("hmodal-slideout-left") // must remove in case it was changed in prior render
+          .addClass("hmodal-slideout-right");
+      }
+      obj.setUp(options);
+      obj.setHeader(options);
+      obj.setBody(html, options);
+      obj.setFooter(options);
+      obj.setButtons(options);
+      obj.setCloseButton(options);
+  }
+
+  this.popupOptionsHandler = function(html,options){
+	  
+  }
+
+
   this.showSlideOut = function(html, options) {
     obj.type = "slideout";
     if (typeof options === "undefined" || options === null) {
@@ -34,39 +58,9 @@ var hModal = function(content, settings) {
 
     //makes the html arg optional
     if (typeof html != "string" && typeof html == "object") {
-      //check in on slideoutdirection and set
-      if (html.slideoutDirection === "left") {
-        $(obj.element)
-          .removeClass("hmodal-slideout-right") // must remove in case it was changed in prior render
-          .addClass("hmodal-slideout-left");
-      } else {
-        $(obj.element)
-          .removeClass("hmodal-slideout-left") // must remove in case it was changed in prior render
-          .addClass("hmodal-slideout-right");
-      }
-      obj.setUp(html);
-      obj.setHeader(html);
-      obj.setBody(null, html);
-      obj.setFooter(html);
-      obj.setButtons(html);
-      obj.setCloseButton(html);
+		obj.slideoutOptionsHandler(null,html);
     } else {
-      //check in on slideoutdirection and set
-      if (options && options.slideoutDirection === "left") {
-        $(obj.element)
-          .removeClass("hmodal-slideout-right") // must remove in case it was changed in prior render
-          .addClass("hmodal-slideout-left");
-      } else {
-        $(obj.element)
-          .removeClass("hmodal-slideout-left") // must remove in case it was changed in prior render
-          .addClass("hmodal-slideout-right");
-      }
-      obj.setUp(options);
-      obj.setHeader(options);
-      obj.setBody(html, options);
-      obj.setFooter(options);
-      obj.setButtons(options);
-      obj.setCloseButton(options);
+		obj.slideoutOptionsHandler(html,options);
     }
 
     //open
@@ -172,7 +166,7 @@ var hModal = function(content, settings) {
       .addClass("hmodal-popup");
 
     //makes the html arg optional
-    //html passed in
+    //html not passed in
     if (typeof html != "string" && typeof html == "object") {
       if (html.popupFixedHeight) {
         $(obj.element).addClass("hmodal-popup-scroll-inner");
@@ -208,7 +202,7 @@ var hModal = function(content, settings) {
         obj.setButtons(html);
       }
       obj.setCloseButton(html);
-      //no html passed in
+    //html passed in
     } else {
       if (options && options.popupFixedHeight) {
         $(obj.element).addClass("hmodal-popup-scroll-inner");
@@ -304,6 +298,26 @@ var hModal = function(content, settings) {
       $("#" + obj.id + " .hmodal-overlay").unbind(); // must remove in case it was changed in prior render
     }
   };
+
+  this.popUpOptionsHandler = function(html, options){
+	if (options && options.popupFixedHeight) {
+        $(obj.element).addClass("hmodal-popup-scroll-inner");
+      }
+      if (options.size) {
+        $(obj.element)
+          .children(".hmodal")
+          .css("max-width", options.size + "px");
+      }
+      if (options.fullscreen) {
+        $(obj.element).addClass("hmodal-popup-full-screen");
+      }
+      obj.setUp(options);
+      obj.setHeader(options);
+      obj.setBody(html, options);
+      obj.setFooter(options);
+      obj.setButtons(options);
+      obj.setCloseButton(options);
+  }
 
   this.open = function() {
     // opens the modal box, reference chris css
