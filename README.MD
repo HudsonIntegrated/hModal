@@ -16,12 +16,15 @@ Will initialize an hModal.
 From here we need to pick a method of rendering, the options are:
 
 Slideout
+
 ![Slideout](docs/screenshots/modal.png)
 
 PopUp
+
 ![PopUp](docs/screenshots/popup.png)
 
 Modal
+
 ![Modal](docs/screenshots/slideout.png)
 
 To render, simply call the type of render function you desire on the hmodal object you previously created.
@@ -85,3 +88,180 @@ $("#myButton").click(function(e)){
 }
 ```
 
+## Options
+Each render function takes two arguments:
+    * HTML(optional)
+    ..* Body content for the modal if you wish to override the object’s content.
+    * Options(optional)
+    ..* A javascript object containing options for the render.
+
+
+```javascript
+var lOptions = {
+        header: "<h1>this is a header</h1>",
+        footer: "<h3>this is definitely a footer i guess</h3>",
+        buttons: [],
+        closeButton: {
+            inside: false,
+            right: true,
+            show: true,
+        },
+        slideoutDirection: "left",
+        popupFixedHeight: true,
+        overlayOnClickClose: true,
+        overlayColor: "light",
+        customClass: "",
+    }
+ 
+mybox.showSlideOut(bodyHtml, lOptions);
+```
+
+### Header and Footer
+The header and footer properties are strings containing html to be rendered within the header or footer div of the modal. If they are not initialized, no header or footer will be rendered.
+
+### Button Options
+---
+The buttons property takes an array of button objects. Each button object is rendered as its own button within the footer of the modal.
+
+```javascript
+buttons: [
+            {
+                name: "Ok",
+                callback: function(obj){
+                    closeAll(obj);
+                },
+            },
+            {
+                name: "Close",
+                callback: null,
+            },
+        ],
+```
+
+#### Name
+A string containing the text that will appear within the button.
+
+#### Callback
+A callback function is a function which will run when the button is clicked. By default, the callback function will close the modal.
+* Callback functions are stored in the callback property of the button object.
+* Callback functions should be wrapped in an unnamed function to prevent the function from running on page load.
+* If you need to access the calling modal in the callback, pass the obj parameter into both the unnamed function and your callback function.
+
+---
+
+### closeButton
+The closeButton property takes an object containing true or false settings which describe where the close button for the modal should be placed.
+
+
+
+#### Inside
+Whether or not it should be inside the hmodal.
+
+Defaults:
+
+| Slideout | Pop Up |
+| --- | --- |
+| true | true |
+
+
+
+#### Right
+Whether or not it should be to the right of the modal.
+
+Defaults:
+
+| Slideout | Pop Up |
+| --- | --- |
+| true | true |
+
+#### Show
+Whether or not the close button will be shown.
+
+Defaults:
+
+Defaults:
+
+| Slideout | Pop Up |
+| --- | --- |
+| true | true |
+
+### slideoutDirection
+String describing the side that the slideout will appear.
+
+Either ```"right"``` or ```"left"```.
+
+Default:
+
+```"right"```
+
+### popupFixedHeight
+Boolean describing whether the popup will have a fixed height (meaning that it will be scrollable).
+
+Default:
+
+false
+
+### overlayOnClickClose
+Boolean describing whether clicking the overlay will close the popup.
+    
+    Default: true
+
+### overlayColor
+String describing the color of the overlay.
+            Either “light” or “dark”
+            Default: “dark”
+
+### customClass
+A string containing the name of a custom css class to be applied to the modal.
+            Default: none
+
+Example: 
+
+```javascript
+customClass: “booking-popup-hmodal”,
+```
+
+### contentArea
+A string containing the selector of an html element to grab the body content from
+    
+HTML
+
+```html
+<div id=”contentArea"></div>
+```
+
+JS
+
+```javascript
+contentArea: “#contentArea”
+```
+
+## Open and Close Events
+
+* hModal now has 2 custom jQuery events
+* `“close”` when close function is called
+* `“open”` when open function is called
+* Both have an extra parameter which returns the hmodal’s id
+* These can be used for advanced functionality in cases where an action needs to be fired every time it closes 
+
+Example of using such event:
+
+```javascript
+var coleModal = new hModal();
+coleModal.showPopUp();
+$(“#”+coleModal.id).on(“close”,function(e, id){
+alert(“hmodal with id ” + id + “ has closed”);
+});
+```
+
+Note: events bubble, so it is possible to listen for an hmodal close event on the document
+
+Example:
+```javascript
+$(document).on(“open”, function(e, id){
+    alert(“hmodal with id ” + id +” has been opened”);
+});
+```
+
+Demo:
+http://styleguide.hudsondemo.com/test-page/hmodal 
