@@ -1,5 +1,5 @@
 # hModal
-A universal modal plugin. Requires variables.scss somewhere in the project. 
+A universal modal plugin. Requires variables.scss somewhere in the project....
 
 [Skip to Options](#options)
 
