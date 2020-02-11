@@ -2,11 +2,11 @@
 A universal modal plugin. Requires variables.scss somewhere in the project. 
 
 [Skip to Options](#options)
+[Skip to Planned Features](#planned-features)
 
 Demo: 
 
-http://styleguide.hudsondemo.com/test-page/hmodal
-
+http://sandbox.hudsondemo.com/hmodal
 
 
 
@@ -243,3 +243,8 @@ $(document).on(“open”, function(e, id){
     alert(“hmodal with id ” + id +” has been opened”);
 });
 ```
+
+## Planned Features
+
+* Refactoring to make code more readable/performative
+* Chris testing this out!! feafeafeafeafeafeaefea   
