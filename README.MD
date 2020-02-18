@@ -1,5 +1,5 @@
 # hModal
-A universal modal plugin. Requires variables.scss somewhere in the project. 
+A universal modal plugin. Requires variables.scss somewhere in the project....
 
 [Skip to Options](#options)
 [Skip to Planned Features](#planned-features)
@@ -236,6 +236,7 @@ $(“#”+coleModal.id).on(“close”,function(e, id){
 
 Note: events bubble, so it is possible to listen for an hmodal close event on the document
 
+
 Example:
 
 ```javascript
@@ -245,6 +246,4 @@ $(document).on(“open”, function(e, id){
 ```
 
 ## Planned Features
-
 * Refactoring to make code more readable/performative
-* Chris testing this out!! feafeafeafeafeafeaefea   
