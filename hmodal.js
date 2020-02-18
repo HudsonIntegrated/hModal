@@ -219,9 +219,6 @@ this.showModal = function(html, options){
     obj.setCloseButton(options);	
   }
   
-
-  
-
   obj.setCloseButton(options);
   
   
@@ -453,7 +450,7 @@ this.init = function(){
   var h = document.createElement('div');
   h.innerHTML = '<div id="'+obj.id+'" class="hmodal-component">' +
        '<div class="hmodal">' +
-        '<span class="close-hmodal" title="Close">&times;</span>' +
+        '<span class="close-hmodal" title="Close" role="button">&times;</span>' +
         '<div class="hmodal-content hcontent">' +
         '		  <div class="hmodal-content-fixed-header">' +
         '		  </div>' +
